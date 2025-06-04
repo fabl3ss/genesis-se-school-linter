@@ -7,7 +7,7 @@ You can run linter with remote config (no local file needed)
 golangci-lint run --config <(curl https://raw.githubusercontent.com/fabl3ss/genesis-se-school-linter/refs/heads/main/.golangci.yaml)
 ```
 
-Or add config to your project
+Or add config file directly to your project
 ```bash
 curl -o .golangci.yaml https://raw.githubusercontent.com/fabl3ss/genesis-se-school-linter/main/.golangci.yaml
 golangci-lint run
