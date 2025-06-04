@@ -1,0 +1,66 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+
+linters:
+  enable:
+    - revive
+    - errcheck
+    - govet
+    - staticcheck
+    - nolintlint
+    - misspell
+    - unused
+    - ireturn
+    - predeclared
+    - dupl
+
+  settings:
+    misspell:
+      locale: US
+
+    dupl:
+      threshold: 200
+
+    govet:
+      enable:
+        - nilness
+        - unusedwrite
+
+    revive:
+      confidence: 0.8
+      rules:
+        - name: comment-spacings
+        - name: empty-lines
+        - name: error-naming
+        - name: error-return
+        - name: error-strings
+        - name: errorf
+        - name: filename-format
+        - name: indent-error-flow
+        - name: increment-decrement
+        - name: line-length-limit
+          arguments: [110]
+        - name: receiver-naming
+        - name: redefines-builtin-id
+        - name: superfluous-else
+        - name: time-naming
+        - name: use-errors-new
+        - name: time-equal
+        - name: redundant-import-alias
+        - name: unexported-naming
+        - name: unexported-return
+        - name: unreachable-code
+        - name: var-naming
+        - name: function-result-limit
+          arguments: [3]
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
