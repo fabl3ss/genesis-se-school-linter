@@ -20,6 +20,7 @@ linters:
     - revive
     - staticcheck
     - unused
+    - mnd
 
   settings:
     dupl:
@@ -60,6 +61,12 @@ linters:
         - name: unreachable-code
         - name: use-errors-new
         - name: var-naming
+
+    mnd:
+      ignored-functions:
+        - '^math\.'
+        - '^http\.StatusText$'
+        - '^env\.Get'
 
 issues:
   max-issues-per-linter: 0
