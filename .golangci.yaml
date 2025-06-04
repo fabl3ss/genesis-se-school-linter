@@ -2,13 +2,11 @@ version: "2"
 
 run:
   timeout: 5m
-
-formatters:
-  enable:
-    - gofmt
-    - goimports
+  modules-download-mode: readonly
+  concurrency: 4
 
 linters:
+  disable-all: true
   enable:
     - dupl
     - errcheck
@@ -20,6 +18,24 @@ linters:
     - revive
     - staticcheck
     - unused
+    - unconvert
+    - gosec
+    - gocyclo
+    - unparam
+    - typecheck
+    - ineffassign
+    - stylecheck
+    - gochecknoinits
+    - gocritic
+    - nakedret
+    - gosimple
+    - prealloc
+    - dogsled
+    - gocognit
+    - gofumpt
+    - noctx
+    - testpackage
+  fast: false
 
   settings:
     dupl:
@@ -61,6 +77,28 @@ linters:
         - name: use-errors-new
         - name: var-naming
 
+    gocyclo:
+      min-complexity: 25
+    goconst:
+      min-len: 2
+      min-occurrences: 2
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+
 issues:
   max-issues-per-linter: 0
   max-same-issues: 0
+
+  exclude-dirs:
+    - internal/gen
+
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - dupl
+        - errcheck
+
+    - linters:
+        - errcheck
+      source: ".*// nolint"
