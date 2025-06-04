@@ -10,21 +10,18 @@ formatters:
 
 linters:
   enable:
-    - revive
+    - dupl
     - errcheck
     - govet
-    - staticcheck
-    - nolintlint
-    - misspell
-    - unused
     - ireturn
+    - misspell
+    - nolintlint
     - predeclared
-    - dupl
+    - revive
+    - staticcheck
+    - unused
 
   settings:
-    misspell:
-      locale: US
-
     dupl:
       threshold: 200
 
@@ -32,6 +29,9 @@ linters:
       enable:
         - nilness
         - unusedwrite
+
+    misspell:
+      locale: US
 
     revive:
       confidence: 0.8
@@ -43,23 +43,23 @@ linters:
         - name: error-strings
         - name: errorf
         - name: filename-format
+        - name: function-result-limit
+          arguments: [3]
         - name: indent-error-flow
         - name: increment-decrement
         - name: line-length-limit
           arguments: [110]
         - name: receiver-naming
+        - name: redundant-import-alias
         - name: redefines-builtin-id
         - name: superfluous-else
-        - name: time-naming
-        - name: use-errors-new
         - name: time-equal
-        - name: redundant-import-alias
+        - name: time-naming
         - name: unexported-naming
         - name: unexported-return
         - name: unreachable-code
+        - name: use-errors-new
         - name: var-naming
-        - name: function-result-limit
-          arguments: [3]
 
 issues:
   max-issues-per-linter: 0
