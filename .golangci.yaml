@@ -2,6 +2,8 @@ version: "2"
 
 run:
   timeout: 5m
+  modules-download-mode: readonly
+  concurrency: 4
 
 formatters:
   enable:
@@ -21,6 +23,22 @@ linters:
     - staticcheck
     - unused
     - mnd
+    - unconvert
+    - gosec
+    - gocyclo
+    - unparam
+    - ineffassign
+    - stylecheck
+    - gochecknoinits
+    - gocritic
+    - nakedret
+    - gosimple
+    - prealloc
+    - dogsled
+    - gocognit
+    - gofumpt
+    - noctx
+    - testpackage
 
   settings:
     dupl:
@@ -61,6 +79,17 @@ linters:
         - name: unreachable-code
         - name: use-errors-new
         - name: var-naming
+
+    gocyclo:
+      min-complexity: 25
+
+    goconst:
+      min-len: 2
+      min-occurrences: 2
+
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
 
     mnd:
       ignored-functions:
