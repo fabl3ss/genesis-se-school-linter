@@ -99,7 +99,7 @@ issues:
     - internal/gen
 
   exclude-rules:
-    - path: _test\.go
+    - path: _test\.go$
       linters:
         - dupl
         - errcheck
