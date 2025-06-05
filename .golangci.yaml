@@ -23,6 +23,7 @@ linters:
     - revive
     - staticcheck
     - unused
+    - mnd
     - unconvert
     - gosec
     - gocyclo
@@ -84,12 +85,20 @@ linters:
 
     gocyclo:
       min-complexity: 25
+
     goconst:
       min-len: 2
       min-occurrences: 2
+
     errcheck:
       check-type-assertions: true
       check-blank: true
+
+    mnd:
+      ignored-functions:
+        - '^math\.'
+        - '^http\.StatusText$'
+        - '^env\.Get'
 
 issues:
   max-issues-per-linter: 0
@@ -99,10 +108,10 @@ issues:
     - internal/gen
 
   exclude-rules:
-    - path: _test\.go$
-      linters:
+    - linters:
         - dupl
         - errcheck
+      path: _test\.go$
 
     - linters:
         - errcheck
