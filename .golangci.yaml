@@ -28,17 +28,13 @@ linters:
     - gocyclo
     - unparam
     - ineffassign
-    - stylecheck
     - gochecknoinits
     - gocritic
     - nakedret
-    - gosimple
     - prealloc
     - dogsled
     - gocognit
-    - gofumpt
     - noctx
-    - testpackage
 
   settings:
     dupl:
