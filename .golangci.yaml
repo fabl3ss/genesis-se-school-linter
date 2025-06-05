@@ -28,7 +28,6 @@ linters:
     - gosec
     - gocyclo
     - unparam
-    - typecheck
     - ineffassign
     - stylecheck
     - gochecknoinits
