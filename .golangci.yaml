@@ -11,6 +11,9 @@ formatters:
     - goimports
 
 linters:
+  exclusions:
+    paths:
+      - docs
   enable:
     - dupl
     - errcheck
